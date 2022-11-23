@@ -18,8 +18,6 @@ async function sentEmail(email: string, code: number) {
                 pass: pass
             }
         });
-        log.info('transporter created');
-
         await transporter.sendMail({
             from: senderAddress,
             to: toAdress,
