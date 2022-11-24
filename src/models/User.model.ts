@@ -42,15 +42,15 @@ export class User {
 
     @prop({ type: () => String, default: null })
     accessToken?: string;
-
-    public async validatePwd(this: DocumentType<User>, candidatePwd: string) {
-        try {
-            await argon2.verify(this.password, candidatePwd);
-        } catch (e) {
-            log.error('Could not verify');
-            return false;
-        }
-    }
 }
+
+export const validatePwd = async (inputpassword: string, candidatePwd: string) => {
+    try {
+        await argon2.verify(inputpassword, candidatePwd);
+    } catch (e) {
+        log.error('Could not verify');
+        return false;
+    }
+};
 
 export const UserModel = getModelForClass(User);

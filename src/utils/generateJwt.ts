@@ -16,3 +16,4 @@ const generateJwt = async (email: string, userId: string) => {
         return { error: true };
     }
 };
+export default generateJwt;
