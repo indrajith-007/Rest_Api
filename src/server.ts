@@ -21,6 +21,5 @@ try {
         routes(app);
     });
 } catch (error) {
-    console.error(error);
     process.exit(1);
 }

@@ -27,7 +27,7 @@ const createUser = async (req: Request, res: Response) => {
 
     try {
         const user: User = await UserModel.create({ ...req.body });
-        res.status(201).json({ success: true, message: 'Registration Success', data: user });
+        res.status(201).json({ success: true, message: 'Registration Success' });
     } catch (err) {
         log.error(err);
         res.status(500).send('Internal Server error Occured');

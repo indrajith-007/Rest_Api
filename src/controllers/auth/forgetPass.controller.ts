@@ -27,7 +27,7 @@ const ForgotPassword = async (req: Request, res: Response) => {
 
         let code: number = Math.floor(100000 + Math.random() * 900000);
         let response = await sentEmail(user.email, code);
-        log.info('mail sended');
+
         if (response.error) {
             return res.status(500).json({
                 error: true,

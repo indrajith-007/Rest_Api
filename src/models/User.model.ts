@@ -40,6 +40,9 @@ export class User {
     @prop({ type: Number, default: null })
     passwordResetToken?: number;
 
+    @prop({ type: () => String, default: null })
+    accessToken?: string;
+
     public async validatePwd(this: DocumentType<User>, candidatePwd: string) {
         try {
             await argon2.verify(this.password, candidatePwd);
