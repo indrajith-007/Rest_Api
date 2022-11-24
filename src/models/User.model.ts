@@ -49,6 +49,7 @@ export const validatePwd = async (inputpassword: string, candidatePwd: string) =
         await argon2.verify(inputpassword, candidatePwd);
     } catch (e) {
         log.error('Could not verify');
+        log.error(e);
         return false;
     }
 };

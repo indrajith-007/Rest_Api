@@ -28,7 +28,7 @@ const Login = async (req: Request, res: Response) => {
             });
         }
 
-        const isValid = await validatePwd(user.password, password);
+        const isValid = await validatePwd(req.body.password, user.password);
 
         if (!isValid) {
             return res.status(400).json({
