@@ -21,6 +21,13 @@ const Login = async (req: Request, res: Response) => {
             });
         }
 
+        if (!user.active) {
+            return res.status(404).json({
+                error: true,
+                message: 'Please activate your account'
+            });
+        }
+
         const isValid = await validatePwd(user.password, password);
 
         if (!isValid) {
