@@ -12,13 +12,13 @@ const routes = (app: Express) => {
 
     app.post('/user/signUp', validate(registerSchema), createUser);
 
-    app.patch('/user/activate', Activate);
+    app.post('/user/activate', Activate);
 
-    app.patch('/user/forgetPassword', ForgotPassword);
+    app.get('/user/forgetPassword', ForgotPassword);
 
-    app.patch('/user/passwordReset', ResetPassword);
+    app.post('/user/passwordReset', ResetPassword);
 
-    app.post('/user/login', Login);
+    app.get('/user/login', Login);
 };
 
 export default routes;
